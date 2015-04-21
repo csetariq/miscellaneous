@@ -1,0 +1,32 @@
+" Set to auto read when a file is changed from the outside
+set autoread
+
+"Always show current position
+set ruler
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+
+" Enable syntax highlighting
+syntax enable
+
+" Show line number
+set number
+
+colorscheme xoria256
+set background=dark
+
+" set tabstop to 4
+set tabstop=4
+set expandtab
+" set auto indent
+set ai
+
+" set font
+set guifont=Consolas:h11
+
+set guioptions-=T " hide tool bar
+set guioptions-=m " hide menu bar
+
+" set to unix new line delimiter
+set ffs=unix,dos
