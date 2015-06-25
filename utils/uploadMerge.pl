@@ -1,9 +1,6 @@
 #!/usr/local/bin/perl
 
 use File::Copy qw(copy);
-my $mergeCount = 0;
-my $zipCount = 0;
-my $notCopied = 0;
 
 sub mergeFiles {
     my ($src, $dst) = @_;
@@ -24,7 +21,8 @@ sub mergeFiles {
 
 sub usage {
     print "Usage:\n\n";
-    print "uploadMerge.pl /path/to/dir/that/has/new/devices /path/to/dir/of/original/upload\n";
+    print "uploadMerge.pl /path/to/dir/that/has/new/devices ".
+            "/path/to/dir/of/original/upload\n";
 }
 
 my $leftDir;
@@ -45,21 +43,12 @@ while (my $file = readdir(LDIR)) {
     $leftFile = File::Spec->catpath("", $leftDir, $file);
     $rightFile = File::Spec->catpath("", $rightDir, $file);
     mergeFiles($leftFile, $rightFile) if ($file =~ 'download$');
-    if ($file =~ 'zip$') {
-        if (not -f $rightFile) {
-            $totCount += 1;
-            copy($leftFile, $rightFile);
-        } elsif (-f $rightFile) {
-            print STDERR "\nFile $rightFile already exists! not copied!\n";
-            $notCopied += 1;
-        }
-    } 
-    
+    copy($leftFile, $rightFile) if ($file =~ 'zip$');
+    $totCount += 1;
 }
 print "\n\n";
 print "Merged $mergeCount download file(s)\n";
-print "Copied $zipCount zip file(s)\n";
-print "Not copied $notCopied zip file(s)\n";
+print "Copied ", $totCount - $mergeCount, " zip file(s)\n";
 print "\n";
 print "Compress \"$rightDir\" directory back to zip archive\n";
 
