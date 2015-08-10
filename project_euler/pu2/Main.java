@@ -10,7 +10,7 @@ public class Main {
 			y = naya;
 			if((naya & 1) == 0)
 				sum += naya;
-		} while(y < limit;
+		} while(y < limit);
 		System.out.println(sum);		
 	}
 }
