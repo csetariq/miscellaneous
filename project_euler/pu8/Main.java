@@ -1,6 +1,7 @@
 public class Main {
 
 	public static void main(String... args) throws Exception {
+        int len = Integer.parseInt(args[0]);
 		int[] num = new int[1000];
 		int ptr = 0;
 
@@ -12,10 +13,10 @@ public class Main {
 			}
 		}
 
-		int maxProd = Integer.MIN_VALUE;
-		for(int i = 0; i <  1000 - 5; ++i) {
-			int prod = 1;
-			for(int j = i; j < i + 5; ++j)
+		long maxProd = Integer.MIN_VALUE;
+		for(int i = 0; i <= ptr - len; ++i) {
+			long prod = 1;
+			for(int j = i; j < i + len; ++j)
 				prod *= num[j];
 			if(prod > maxProd)
 				maxProd = prod;
