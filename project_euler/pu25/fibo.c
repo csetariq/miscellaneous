@@ -59,7 +59,7 @@ int main() {
 		strcpy(pnum, temp);
 		strcpy(t, cnum);
 		strrev(t);
-		printf("%s\n", t);
+		//printf("%s\n", t);
 		++cnt;
 	}
 	printf("%d\n", cnt);
