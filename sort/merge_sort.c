@@ -13,7 +13,7 @@ int is_sorted(int A[], int n) {
 void merge(int A[], int lo, int mid, int hi) {
     int p = lo;
     int q = mid + 1;
-    int aux[hi - lo + 1];
+    int *aux = (int *)malloc((hi - lo + 1)* sizeof(int));
     int t = 0;
     
     while (p <= mid && q <= hi)
@@ -44,7 +44,7 @@ int main() {
     int n;
     scanf("%d", &n);
 
-    int A[n];
+    int *A = (int *)malloc(n * sizeof(int));
 
     for (int i = 0; i < n; ++i)
         scanf("%d", A + i);
