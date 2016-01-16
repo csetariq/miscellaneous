@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void swap(int A[], int i, int j) {
     int temp = A[i];

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int is_sorted(int A[], int n) {
     int curr = A[0];
